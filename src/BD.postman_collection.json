@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "1af5761a-d86c-4822-8515-575bd5d11549",
+		"name": "BD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27330872",
+		"_collection_link": "https://cloudy-shadow-804257.postman.co/workspace/Team-Workspace~bb1b40c0-2529-41ea-8ff1-31aef02afd23/collection/27330872-1af5761a-d86c-4822-8515-575bd5d11549?action=share&creator=27330872&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"New_user\", \"email\": \"user@email.com\", \"password\": \"user123\", \"address\": \"User Location\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Authentication",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Existing_User\", \"password\": \"UserPassword\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Song",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ismn\": \"0000000000001\", \"title\": \"New song\", \"genre\": \"Pop\", \"duration\": \"3:49\", \"release_date\": \"2023-05-30\", \"label_id\": \"2\", \"other_artists\": [\"5\"], \"token\": \"User_token\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"song"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Album",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"New album\", \"release_date\": \"2023-06-04\", \"songs\": [\"0000000000001\", {\"ismn\": \"0000000000002\", \"title\": \"Another song\", \"genre\": \"Rock\", \"duration\": \"2:30\", \"release_date\": \"2023-06-10\", \"label_id\": \"1\", \"other_artists\": []}], \"order_type\": \"3\", \"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"album"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Song",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/song/keyword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"song",
+						"keyword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Artist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/artist_info/artist_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"artist_info",
+						"artist_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to Premium",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"period\": \"month\", \"cards\": [\"8304672863962853\"], \"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/subscription",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"playlist_name\": \"New playlist\", \"visibility\": \"Private\", \"songs\": [\"0000000000001\", \"0000000000002\"], \"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Play Song",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/song/0000000000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"song",
+						"0000000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate pre-paid card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number_cards\": \"1\", \"card_price\": \"10\", \"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leave Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"comment\": \"Comment here!\", \"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/comments/0000000000001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"comments",
+						"0000000000001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate monthly report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/report/2023-07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"report",
+						"2023-07"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top10 Playlist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"User_token\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/top10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"top10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
